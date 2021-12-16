@@ -29,3 +29,5 @@ def recursivePreOrder(node):
     recursivePreOrder(node.right)
 
 recursivePreOrder(node1)
+
+# inOrder 
