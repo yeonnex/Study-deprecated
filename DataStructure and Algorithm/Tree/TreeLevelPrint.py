@@ -3,7 +3,7 @@ class TreeNode:
         self.val = val
         self.left = None
         self.right = None
-
+    
 node1 = TreeNode(1)
 node2 = TreeNode(2)
 node3 = TreeNode(3)
@@ -19,15 +19,20 @@ node2.right = node5
 node3.left = node6
 node3.right = node7
 
-
-# preOrder NLR
-def recursivePreOrder(node):
+from collections import deque
+def treeLevelPrint(node):
     if node is None:
         return
-    print(node.val, end=" ")
-    recursivePreOrder(node.left)
-    recursivePreOrder(node.right)
 
-recursivePreOrder(node1)
+    q = deque()
+    q.append(node)
 
-# inOrder 
+    while 0 < len(q):
+        crnt_node = q.popleft()
+        print(crnt_node.val, end=" ")
+        if crnt_node.left:
+            q.append(crnt_node.left)
+        if crnt_node.right:
+            q.append(crnt_node.right)
+
+treeLevelPrint(node1)
